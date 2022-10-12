@@ -1,5 +1,18 @@
 spring:
-    datasource:
-        password: ${PASSWORD}
-        url: jdbc:mysql://${ENDPOINT}:3306/saurabh?useSSL=false
-        username: ${USER}
+
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://${ENDPOINT}:3306/saurabh?createDatabaseIfNotExist=true&useSSL=true
+    username: ${USER}
+    password: ${PASSWORD}
+    hikari:
+      initialization-fail-timeout: 0
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5Dialect
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+    
